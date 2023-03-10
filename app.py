@@ -20,13 +20,18 @@ JOBS = [{
   'id': 3,
   'title': 'Backend Engineer',
   'Location': 'San Fransisco, USA',
-  'salary': '$120, 000',
+  'salary': '$150, 000',
 }]
 
 
 @app.route("/")
 def hello_world():
   return render_template('home.html', jobs=JOBS, company_name='Abhinna')
+
+
+@app.route("/api/jobs")
+def list_jobs():
+  return jasonify(JOBS)
 
 
 if __name__ == '__main__':
